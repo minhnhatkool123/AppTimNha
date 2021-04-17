@@ -13,6 +13,7 @@ class BannerApp extends StatelessWidget {
         ),
       ),
       child: Carousel(
+        //boxFit: BoxFit.fill,
         overlayShadow: true,
         overlayShadowSize: 0.2,
         borderRadius: true,

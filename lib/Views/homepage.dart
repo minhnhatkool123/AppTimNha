@@ -110,19 +110,22 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              margin: EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 0.0),
-              height: roomController.roomList.length == 0 ? 50 : 720,
-              width: double.infinity,
-              child: listViewNew(),
+            Obx(
+              () => Container(
+                margin: EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 0.0),
+                height: roomController.roomList.length == 0 ? 50 : 720,
+                width: double.infinity,
+                child: listViewNew(),
+              ),
             ),
             Container(
-              height: 0.1,
+              height: 0.3,
               margin: EdgeInsets.fromLTRB(10, 5, 10, 0),
               width: MediaQuery.of(context).size.width,
               color: Colors.black,
             ),
             Container(
+              width: MediaQuery.of(context).size.width,
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: InkWell(
@@ -133,6 +136,7 @@ class HomePage extends StatelessWidget {
                       fontSize: 17,
                       color: Color.fromRGBO(72, 119, 248, 1),
                     ),
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ),
