@@ -3,11 +3,14 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:test_getx/Const/constance.dart';
 import 'package:test_getx/Controllers/roomcontroller.dart';
+import 'package:test_getx/Views/homepage.dart';
 import 'package:test_getx/Views/share/roomitem.dart';
 
 class AllFeatureRoom extends GetView<RoomController> {
   //StatelessWidget {
   //final RoomController roomController = Get.find();
+
+  //const AllFeatureRoom({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +29,7 @@ class AllFeatureRoom extends GetView<RoomController> {
             Icons.arrow_back_sharp,
             color: Colors.black,
           ),
-          onPressed: () => Get.toNamed('/'),
+          onPressed: () => Get.back(id: 1),
         ),
       ),
       body: Container(

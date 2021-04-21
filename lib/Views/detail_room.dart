@@ -3,12 +3,11 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:test_getx/Const/constance.dart';
 import 'package:test_getx/Controllers/room_detail_controller.dart';
+import 'package:test_getx/Models/room.dart';
 import 'package:test_getx/Views/ontap_image.dart';
 import 'package:test_getx/Views/share/detail_image.dart';
 
-class DetailRoom extends StatelessWidget {
-  final RoomDetailController roomDetailController =
-      Get.put(RoomDetailController());
+class DetailRoom extends GetWidget<RoomDetailController> {
   List<String> ids = ['1002', '1', '10', '100', '1003', '1004', '1006'];
   List<String> listImageTest = [
     'https://picsum.photos/id/1002/200/300',
@@ -20,6 +19,9 @@ class DetailRoom extends StatelessWidget {
     'https://picsum.photos/id/1006/200/300',
     'https://picsum.photos/id/1008/200/300',
   ];
+  final Room room; // = Get.arguments;
+
+  DetailRoom(this.room);
 
   String kool = '76576576,89';
   String lorem =
@@ -44,7 +46,7 @@ class DetailRoom extends StatelessWidget {
             Icons.arrow_back_sharp,
             color: Colors.black,
           ),
-          onPressed: () => Get.toNamed('/'),
+          onPressed: () => Get.back(),
         ),
       ),
       body: SingleChildScrollView(
@@ -334,6 +336,7 @@ class DetailRoom extends StatelessWidget {
               child: Text('Chi tiết', style: TextStyle(fontSize: 20)),
             ),
             Container(
+              alignment: Alignment.topLeft,
               margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
               padding: EdgeInsets.only(bottom: 10),
               child: Obx(() {
@@ -342,62 +345,62 @@ class DetailRoom extends StatelessWidget {
                     style: TextStyle(color: Colors.black, fontSize: 17),
                     children: [
                       TextSpan(
-                        text: (lorem.length > 150 &&
-                                roomDetailController.showAll.value == false)
-                            ? lorem.substring(0, 150) + '...'
-                            : lorem,
-                      ),
+                        text: (room.name.length > 150 &&
+                                !controller.showAll.value)
+                            ? room.name.substring(0, 150) + '...'
+                            : room.name.obs.toString(),
+
+                        //text: room.name.obs.toString(),
+                      )
                     ],
                   ),
                 );
               }),
             ),
-            Container(
-              height: 0.3,
-              margin: EdgeInsets.fromLTRB(10, 5, 10, 0),
-              width: MediaQuery.of(context).size.width,
-              color: Colors.black,
-            ),
-            Container(
-              alignment: Alignment.center,
-              width: MediaQuery.of(context).size.width,
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: InkWell(
-                  onTap: () {
-                    roomDetailController.showAll.value =
-                        !roomDetailController.showAll.value;
-                    //roomDetailController.setShowAll();
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Obx(() {
-                        return Text(
-                          roomDetailController.showAll.value
-                              ? 'Thu gọn'
-                              : 'Xem thêm ',
-                          style: TextStyle(
-                            fontSize: 17,
+            if (room.name.length > 150)
+              Container(
+                height: 0.3,
+                margin: EdgeInsets.fromLTRB(10, 5, 10, 0),
+                width: MediaQuery.of(context).size.width,
+                color: Colors.black,
+              ),
+            if (room.name.length > 150)
+              Container(
+                alignment: Alignment.center,
+                width: MediaQuery.of(context).size.width,
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: InkWell(
+                    onTap: () {
+                      controller.setShowAll();
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Obx(() {
+                          return Text(
+                            controller.showAll.value ? 'Thu gọn' : 'Xem thêm ',
+                            style: TextStyle(
+                              fontSize: 17,
+                              color: Color.fromRGBO(72, 119, 248, 1),
+                            ),
+                          );
+                        }),
+                        SizedBox(width: 3),
+                        Obx(() {
+                          return Icon(
+                            controller.showAll.value
+                                ? Icons.keyboard_arrow_up_sharp
+                                : Icons.keyboard_arrow_down_sharp,
                             color: Color.fromRGBO(72, 119, 248, 1),
-                          ),
-                        );
-                      }),
-                      SizedBox(width: 3),
-                      Obx(() {
-                        return Icon(
-                          roomDetailController.showAll.value
-                              ? Icons.keyboard_arrow_up_sharp
-                              : Icons.keyboard_arrow_down_sharp,
-                          color: Color.fromRGBO(72, 119, 248, 1),
-                          size: 17,
-                        );
-                      }),
-                    ],
+                            size: 17,
+                          );
+                        }),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
             Container(
               width: MediaQuery.of(context).size.width,
               height: 10,

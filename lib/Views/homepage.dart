@@ -4,13 +4,20 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:get/instance_manager.dart';
 import 'package:test_getx/Const/constance.dart';
+import 'package:test_getx/Controllers/room_detail_controller.dart';
 import 'package:test_getx/Controllers/roomcontroller.dart';
+import 'package:test_getx/Controllers/root_controller.dart';
+import 'package:test_getx/Models/screen_model.dart';
 import 'package:test_getx/Views/banner.dart';
+import 'package:test_getx/Views/detail_room.dart';
 import 'package:test_getx/Views/share/district.dart';
 import 'package:test_getx/Views/share/roomitem.dart';
 
 class HomePage extends StatelessWidget {
   final RoomController roomController = Get.put(RoomController());
+  final ScreenModel model;
+  HomePage({Key key, this.model}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -129,7 +136,8 @@ class HomePage extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: InkWell(
-                  onTap: () => Get.toNamed('/featureall'),
+                  onTap: () => Get.find<RootController>().openAllFeatureRoom(
+                      model.navKey), //() => Get.toNamed('/all-feature-room'),
                   child: Text(
                     'Xem tất cả',
                     style: TextStyle(
@@ -166,7 +174,21 @@ class HomePage extends StatelessWidget {
             itemCount: 6, //oomController.roomList.length,
             itemBuilder: (context, index) {
               return InkWell(
-                onTap: () => Get.toNamed('/detailroom'),
+                // onTap: () => Get.to(
+                //   () => DetailRoom(roomController.roomList[index]),
+                //   binding: BindingsBuilder(
+                //     () => {
+                //       Get.create(() => RoomDetailController()),
+                //     },
+                //   ),
+                // ),
+                // onTap: () => Get.toNamed(
+                //   '/detail-room',
+                //   arguments: roomController.roomList[index],
+                // ),
+                onTap: () => Get.find<RootController>().openDetailRoom(
+                  roomController.roomList[index],
+                ),
                 child: RoomItem(room: roomController.roomList[index]),
               );
             },
