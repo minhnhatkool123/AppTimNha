@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:test_getx/Const/constance.dart';
+import 'package:test_getx/Controllers/room_detail_controller.dart';
 import 'package:test_getx/Controllers/roomcontroller.dart';
-import 'package:test_getx/Views/homepage.dart';
+import 'package:test_getx/Views/detail_room.dart';
 import 'package:test_getx/Views/share/roomitem.dart';
 
-class AllFeatureRoom extends GetView<RoomController> {
+class AllFeatureRoom extends StatelessWidget {
+  final RoomController roomController = Get.find();
   //StatelessWidget {
   //final RoomController roomController = Get.find();
 
@@ -40,28 +42,38 @@ class AllFeatureRoom extends GetView<RoomController> {
   }
 
   Widget listViewNew() {
-    return Obx(
-      () {
-        if (controller.isLoading.value)
-          return Container(
-            margin: EdgeInsets.only(top: 10.0),
-            alignment: Alignment.topCenter,
-            child: CircularProgressIndicator(),
-          );
-        else
-          return StaggeredGridView.countBuilder(
+    return Obx(() {
+      return Stack(
+        children: [
+          StaggeredGridView.countBuilder(
+            controller: roomController.scrollController,
             physics: BouncingScrollPhysics(),
             crossAxisCount: 2,
             mainAxisSpacing: 10.0,
             crossAxisSpacing: 15.0,
-            itemCount:
-                controller.roomList.length, //roomController.roomList.length,
+            itemCount: roomController.roomList.length,
             itemBuilder: (context, index) {
-              return RoomItem(room: controller.roomList[index]);
+              return GestureDetector(
+                  onTap: () => Get.to(
+                      () => DetailRoom(roomController.roomList[index].id),
+                      binding: BindingsBuilder(
+                          () => Get.create(() => RoomDetailController()))),
+                  child: RoomItem(room: roomController.roomList[index]));
             },
             staggeredTileBuilder: (index) => new StaggeredTile.fit(1),
-          );
-      },
-    );
+          ),
+          roomController.isLoading.value == true
+              ? Align(
+                  alignment: Alignment.center,
+                  child: SizedBox(
+                    child: CircularProgressIndicator(),
+                    height: 20.0,
+                    width: 20.0,
+                  ),
+                )
+              : Container()
+        ],
+      );
+    });
   }
 }

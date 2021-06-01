@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:test_getx/Const/constance.dart';
-import 'package:test_getx/Models/room.dart';
+import 'package:test_getx/Models/room.dart' as imr;
 
 class RoomItem extends StatelessWidget {
-  final Room room;
+  final imr.Datum room;
   const RoomItem({this.room});
   @override
   Widget build(BuildContext context) {
@@ -27,9 +27,9 @@ class RoomItem extends StatelessWidget {
                 width: double.infinity,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: NetworkImage(
-                      'https://bayleaf.s3.amazonaws.com/property-images%2F1617934581284_IMG_20201004_104927.jpg',
-                    ),
+                    image: NetworkImage('${room.accommodation.images[0].src}'
+                        //'https://bayleaf.s3.amazonaws.com/property-images%2F1617934581284_IMG_20201004_104927.jpg',
+                        ),
                     fit: BoxFit.cover,
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -48,7 +48,7 @@ class RoomItem extends StatelessWidget {
             margin: EdgeInsets.only(top: 5.0),
             alignment: Alignment.topLeft,
             child: Text(
-              "${room.name}",
+              "${room.accommodation.title}",
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               //"Phòng cho thuê Định Bộ Lĩnh,Quận Bình Thành",
@@ -59,7 +59,9 @@ class RoomItem extends StatelessWidget {
             margin: EdgeInsets.only(top: 5.0),
             alignment: Alignment.topLeft,
             child: Text(
-              "3.6 triệu VND/phòng",
+              "${room.accommodation.retail} triệu VND/phòng",
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.bold,
@@ -71,7 +73,9 @@ class RoomItem extends StatelessWidget {
             margin: EdgeInsets.only(top: 5.0),
             alignment: Alignment.topLeft,
             child: Text(
-              "183/56 Hoàng hoa thám ",
+              "${room.accommodation.address.street}",
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.w500,
@@ -83,7 +87,9 @@ class RoomItem extends StatelessWidget {
             margin: EdgeInsets.only(top: 5.0),
             alignment: Alignment.topLeft,
             child: Text(
-              "Quận Bình Thạnh",
+              "${room.accommodation.address.district}",
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.w500,

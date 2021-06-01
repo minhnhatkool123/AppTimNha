@@ -24,35 +24,21 @@ class RootController extends GetxController {
   ScreenModel get currentScreenModel => screenData[navMenuIndex()];
   int get currentNavKey => currentScreenModel.navKey;
 
-  // Widget createDetailRoom(Room room) {
-  //   print('create_detail_room');
-  //   return Navigator(
-  //     key: Get.nestedKey(3),
-  //     onGenerateRoute: (settings) => MaterialPageRoute(
-  //       builder: (_) => DetailRoom(room),
-  //     ),
-  //   );
-  // }
-
-  //Widget get detailRoom => createDetailRoom(null);
-
   void openAllFeatureRoom(int id) {
     Get.to(() => AllFeatureRoom(), id: id);
   }
 
-  void openDetailRoom(
-    Room room,
-  ) {
-    Get.to(
-      () => DetailRoom(room),
-      //id: 1,
-      binding: BindingsBuilder(
-        () => {
-          Get.create(() => RoomDetailController()),
-        },
-      ),
-    );
-  }
+  // void openDetailRoom(String id) {
+  //   Get.to(
+  //     () => DetailRoom(id),
+  //     //id: 1,
+  //     binding: BindingsBuilder(
+  //       () => {
+  //         Get.create(() => RoomDetailController()),
+  //       },
+  //     ),
+  //   );
+  // }
 
   @override
   void onInit() {

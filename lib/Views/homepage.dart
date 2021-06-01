@@ -15,6 +15,7 @@ import 'package:test_getx/Views/share/roomitem.dart';
 
 class HomePage extends StatelessWidget {
   final RoomController roomController = Get.put(RoomController());
+
   final ScreenModel model;
   HomePage({Key key, this.model}) : super(key: key);
 
@@ -186,9 +187,20 @@ class HomePage extends StatelessWidget {
                 //   '/detail-room',
                 //   arguments: roomController.roomList[index],
                 // ),
-                onTap: () => Get.find<RootController>().openDetailRoom(
-                  roomController.roomList[index],
-                ),
+
+                onTap: () => Get.to(
+                    () => DetailRoom(roomController.roomList[index].id),
+                    binding: BindingsBuilder(
+                        () => Get.create(() => RoomDetailController()))),
+                //() => Get.lazyPut(() => RoomDetailController()))),
+
+                // onTap: () =>
+                //     Get.to(() => DetailRoom(roomController.roomList[index].id),
+                //         binding: BindingsBuilder(() => {
+                //               Get.create(() => RoomDetailController()
+                //                   .getRoomDetail(
+                //                       roomController.roomList[index].id)),
+                //             })),
                 child: RoomItem(room: roomController.roomList[index]),
               );
             },
