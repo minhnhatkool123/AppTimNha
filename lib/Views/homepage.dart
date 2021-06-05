@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
@@ -10,6 +9,7 @@ import 'package:test_getx/Controllers/root_controller.dart';
 import 'package:test_getx/Models/screen_model.dart';
 import 'package:test_getx/Views/banner.dart';
 import 'package:test_getx/Views/detail_room.dart';
+import 'package:test_getx/Views/share/custom_dialog.dart';
 import 'package:test_getx/Views/share/district.dart';
 import 'package:test_getx/Views/share/roomitem.dart';
 
@@ -30,7 +30,7 @@ class HomePage extends StatelessWidget {
           children: [
             Container(
               height: 200.0,
-              padding: EdgeInsets.all(10.0),
+              //padding: EdgeInsets.all(10.0),
               color: backGroundColorHead,
               width: MediaQuery.of(context).size.width,
               child: BannerApp(),
@@ -52,51 +52,73 @@ class HomePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Expanded(
-                      child: District(
-                    imageUrl: 'assets/images/binhthanh.jpg',
-                    title: 'Bình Thạnh',
+                      child: GestureDetector(
+                    onTap: () => showGeneralDialog(
+                        context: context,
+                        barrierDismissible: false,
+                        pageBuilder: (BuildContext context, Animation animation,
+                            Animation secondAnimation) {
+                          return Center(
+                            child: Container(
+                              // decoration: BoxDecoration(
+                              //   color: Colors.white,
+                              //   borderRadius:
+                              //       BorderRadius.all(Radius.circular(20)),
+                              //   border:
+                              //       Border.all(color: Colors.white, width: 10),
+                              // ),
+                              width: MediaQuery.of(context).size.width - 30,
+                              height: MediaQuery.of(context).size.height - 100,
+                              child: CustomDialog(),
+                            ),
+                          );
+                        }), //showDialog(context: context, builder: builder),
+                    child: District(
+                      imageUrl: 'assets/images/binhthanh.jpg',
+                      title: 'Hồ Chí Minh',
+                    ),
                   )),
                   SizedBox(width: 16.0),
                   Expanded(
                       child: District(
                     imageUrl: 'assets/images/quan10.jpg',
-                    title: 'Quận 10',
+                    title: 'Hà Nội',
                   )),
                   SizedBox(width: 16.0),
                   Expanded(
                       child: District(
                     imageUrl: 'assets/images/quan7.jpg',
-                    title: 'Quận 7',
+                    title: 'Đà Nẵng',
                   )),
                 ],
               ),
             ),
-            Container(
-              color: backGroundColorHead,
-              padding: EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 15.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Expanded(
-                      child: District(
-                    imageUrl: 'assets/images/quan1.jpg',
-                    title: 'Quận 1',
-                  )),
-                  SizedBox(width: 16.0),
-                  Expanded(
-                      child: District(
-                    imageUrl: 'assets/images/thuduc.jpg',
-                    title: 'Thủ Đức',
-                  )),
-                  SizedBox(width: 16.0),
-                  Expanded(
-                      child: District(
-                    imageUrl: 'assets/images/quan3.jpg',
-                    title: 'Quận 3',
-                  )),
-                ],
-              ),
-            ),
+            // Container(
+            //   color: backGroundColorHead,
+            //   padding: EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 15.0),
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //     children: [
+            //       Expanded(
+            //           child: District(
+            //         imageUrl: 'assets/images/quan1.jpg',
+            //         title: 'Quận 1',
+            //       )),
+            //       SizedBox(width: 16.0),
+            //       Expanded(
+            //           child: District(
+            //         imageUrl: 'assets/images/thuduc.jpg',
+            //         title: 'Thủ Đức',
+            //       )),
+            //       SizedBox(width: 16.0),
+            //       Expanded(
+            //           child: District(
+            //         imageUrl: 'assets/images/quan3.jpg',
+            //         title: 'Quận 3',
+            //       )),
+            //     ],
+            //   ),
+            // ),
             Container(
               height: 35.0,
               width: MediaQuery.of(context).size.width,

@@ -41,4 +41,26 @@ class RemoteServices {
       return null;
     }
   }
+
+  static Future<Room> filterRoom(String province, String district,
+      {int page = 1}) async {
+    Map data = {
+      'province': province,
+      'district': district,
+    };
+    String body = json.encode(data);
+    var url = Uri.parse(
+        'http://10.0.2.2:8000/api/post/filter-posts/$page'); //'http://10.0.2.2:3000/test');
+    var response = await client.post(url, body: body);
+    if (response.statusCode == 200) {
+      var jsonString = response.body;
+
+      //print('Lấy API get Rooms thành công');
+
+      return roomFromJson(jsonString);
+    } else {
+      print('Lỗi API get Rooms');
+      return null;
+    }
+  }
 }

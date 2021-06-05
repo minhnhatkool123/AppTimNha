@@ -6,17 +6,17 @@ class BannerApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       //margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
-      clipBehavior: Clip.antiAlias,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(
-          Radius.circular(10),
-        ),
-      ),
+      //clipBehavior: Clip.antiAlias,
+      // decoration: BoxDecoration(
+      //   borderRadius: BorderRadius.all(
+      //     Radius.circular(10),
+      //   ),
+      // ),
       child: Carousel(
         //boxFit: BoxFit.fill,
         overlayShadow: true,
         overlayShadowSize: 0.2,
-        borderRadius: true,
+        //borderRadius: true,
         dotSize: 5.0,
         dotColor: Colors.white60,
         dotIncreasedColor: Colors.black.withOpacity(0.3),

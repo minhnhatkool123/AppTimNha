@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:test_getx/Const/constance.dart';
 import 'package:test_getx/Controllers/main_controller.dart';
 import 'package:test_getx/Controllers/root_controller.dart';
 import 'package:test_getx/Root/map_root.dart';
@@ -22,21 +23,23 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: MaterialColor(
-          0xfff73470,
-          const <int, Color>{
-            50: const Color(0xfff73470),
-            100: const Color(0xfff73470),
-            200: const Color(0xfff73470),
-            300: const Color(0xfff73470),
-            400: const Color(0xfff73470),
-            500: const Color(0xfff73470),
-            600: const Color(0xfff73470),
-            700: const Color(0xfff73470),
-            800: const Color(0xfff73470),
-            900: const Color(0xfff73470),
-          },
-        ),
+        primarySwatch: Colors.blue,
+
+        // primarySwatch: MaterialColor(
+        //   0xfff73470,
+        //   const <int, Color>{
+        //     50: const Color(0xfff73470),
+        //     100: const Color(0xfff73470),
+        //     200: const Color(0xfff73470),
+        //     300: const Color(0xfff73470),
+        //     400: const Color(0xfff73470),
+        //     500: const Color(0xfff73470),
+        //     600: const Color(0xfff73470),
+        //     700: const Color(0xfff73470),
+        //     800: const Color(0xfff73470),
+        //     900: const Color(0xfff73470),
+        //   },
+        // ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       initialRoute: '/',

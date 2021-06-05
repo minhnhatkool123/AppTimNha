@@ -507,7 +507,7 @@ class DetailRoom extends GetWidget<RoomDetailController> {
                       child: Icon(
                         Icons.location_on,
                         size: 20,
-                        color: Color.fromRGBO(72, 119, 248, 1),
+                        color: textColorForm,
                       ),
                     ),
                     SizedBox(width: 10),
@@ -546,8 +546,9 @@ class DetailRoom extends GetWidget<RoomDetailController> {
                     content: Text('Bạn muốn gọi đến số 0926423678'),
                     textCancel: 'Hủy',
                     textConfirm: 'Gọi',
+                    cancelTextColor: Colors.black,
                     confirmTextColor: Colors.white,
-                    //buttonColor: Colors.white,
+                    buttonColor: textColorForm,
                     //confirm: Text("Gọi", style: TextStyle(color: Colors.black)),
                     barrierDismissible: false,
                     //onConfirm: () => Navigator.pop(context),
@@ -575,7 +576,7 @@ class DetailRoom extends GetWidget<RoomDetailController> {
                       child: Icon(
                         Icons.phone,
                         size: 20,
-                        color: Color.fromRGBO(72, 119, 248, 1),
+                        color: textColorForm,
                       ),
                     ),
                     SizedBox(width: 10),
