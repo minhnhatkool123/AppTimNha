@@ -22,7 +22,7 @@ class BannerApp extends StatelessWidget {
         dotIncreasedColor: Colors.black.withOpacity(0.3),
         dotSpacing: 15.0,
         dotBgColor: Colors.transparent,
-        indicatorBgPadding: 10.0,
+        indicatorBgPadding: 30.0,
         images: [
           NetworkImage(
               'https://www.dungplus.com/wp-content/uploads/2019/12/girl-xinh-2-480x600.jpg'),
