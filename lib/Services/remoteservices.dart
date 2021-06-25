@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:test_getx/Models/room.dart';
 import 'package:test_getx/Models/room_count.dart';
 import 'package:test_getx/Models/room_detail.dart';
+import 'package:test_getx/Models/user_login.dart';
 
 class RemoteServices {
   static var client = http.Client();
@@ -97,6 +98,30 @@ class RemoteServices {
       return roomCountFromJson(jsonString);
     } else {
       print('Lỗi API get Rooms');
+      return null;
+    }
+  }
+
+  static Future<UserLogin> loginUser(String phone, String pass) async {
+    Map data = {"phone": phone, "password": pass};
+    String body = json.encode(data);
+    var url = Uri.parse('http://10.0.2.2:8000/api/user/login');
+    var response = await client.post(
+      url,
+      headers: {"Content-Type": "application/json"},
+      body: body,
+    );
+    if (response.statusCode == 200) {
+      var jsonString = response.body;
+      var result = response.body;
+      var jsonRes = json.decode(result);
+      var dataRes = jsonRes['data'];
+      if (dataRes['result'])
+        return userLoginFromJson(jsonString);
+      else
+        return null;
+    } else {
+      print('Lỗi API login');
       return null;
     }
   }

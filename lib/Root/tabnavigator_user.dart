@@ -13,8 +13,8 @@ class TabNavigatorUser extends StatelessWidget {
       key: Get.nestedKey(model.navKey),
       onGenerateRoute: (settings) => MaterialPageRoute(
         builder: (_) => UserPage(
-          model: model,
-        ),
+            // model: model,
+            ),
       ),
     );
   }

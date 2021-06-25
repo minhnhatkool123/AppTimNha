@@ -32,13 +32,13 @@ class MapRoot extends StatelessWidget {
             items: [
               BottomNavigationBarItem(
                 icon: Icon(Icons.home),
-                label: 'Home',
+                label: 'Sativa',
               ),
               BottomNavigationBarItem(
                 icon: Icon(
                   Icons.person_outline_sharp,
                 ),
-                label: 'User',
+                label: 'Tài khoản',
               ),
             ],
           );

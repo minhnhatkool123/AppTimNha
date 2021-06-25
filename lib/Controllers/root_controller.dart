@@ -16,8 +16,8 @@ final screenData = <ScreenModel>[
 class RootController extends GetxController {
   var navMenuIndex = 0.obs;
 
-  Widget _homePage;
-  Widget _userPage;
+  // Widget _homePage;
+  // Widget _userPage;
   Widget get homPage => TabNavigatorHome(model: screenData[0]);
   Widget get userPage => TabNavigatorUser(model: screenData[1]);
 

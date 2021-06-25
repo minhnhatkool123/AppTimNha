@@ -7,6 +7,7 @@ import 'package:test_getx/Root/map_root.dart';
 import 'package:test_getx/Views/all_feature_room.dart';
 import 'package:test_getx/Views/detail_room.dart';
 import 'package:test_getx/Views/homepage.dart';
+import 'package:test_getx/Views/login/login_page.dart';
 import 'package:test_getx/Views/user_page.dart';
 
 import 'Controllers/room_detail_controller.dart';
@@ -23,23 +24,24 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        // primarySwatch: Colors.blue,
 
-        // primarySwatch: MaterialColor(
-        //   0xfff73470,
-        //   const <int, Color>{
-        //     50: const Color(0xfff73470),
-        //     100: const Color(0xfff73470),
-        //     200: const Color(0xfff73470),
-        //     300: const Color(0xfff73470),
-        //     400: const Color(0xfff73470),
-        //     500: const Color(0xfff73470),
-        //     600: const Color(0xfff73470),
-        //     700: const Color(0xfff73470),
-        //     800: const Color(0xfff73470),
-        //     900: const Color(0xfff73470),
-        //   },
-        // ),
+        primarySwatch: MaterialColor(
+          // #4877F9
+          0xff4877F9,
+          const <int, Color>{
+            50: const Color.fromRGBO(72, 119, 248, 1),
+            100: const Color.fromRGBO(72, 119, 248, 1),
+            200: const Color.fromRGBO(72, 119, 248, 1),
+            300: const Color.fromRGBO(72, 119, 248, 1),
+            400: const Color.fromRGBO(72, 119, 248, 1),
+            500: const Color.fromRGBO(72, 119, 248, 1),
+            600: const Color.fromRGBO(72, 119, 248, 1),
+            700: const Color.fromRGBO(72, 119, 248, 1),
+            800: const Color.fromRGBO(72, 119, 248, 1),
+            900: const Color.fromRGBO(72, 119, 248, 1),
+          },
+        ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       initialRoute: '/',
