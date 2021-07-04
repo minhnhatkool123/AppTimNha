@@ -8,6 +8,10 @@
 * Xem chi tiết các phòng trọ
 * Lọc cũng như tìm kiếm các phòng trọ theo yêu cầu mong muốn
 
+## Một số hình ảnh giao diện
+![trang chủ](https://res.cloudinary.com/dccqahm52/image/upload/v1625391494/web-ban-hang/trangchu_q1cbk7.png)
+![phòng nổi bật](https://res.cloudinary.com/dccqahm52/image/upload/c_scale,w_270/v1625391500/web-ban-hang/noibat_wnnrmf.png)
+![chi tiết phòng](https://res.cloudinary.com/dccqahm52/image/upload/v1625391494/web-ban-hang/chitiet_zsibci.png)
 ## Các thiết bị 
 * Hầu như đều đáp ứng được các điện thoại phiên bản Android
 * Chưa được thử nghiệm trên các thiết bị iOS
