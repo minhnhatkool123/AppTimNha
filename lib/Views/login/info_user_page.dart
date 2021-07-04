@@ -12,12 +12,13 @@ class InfoUserPage extends StatefulWidget {
 }
 
 class _InfoUserPageState extends State<InfoUserPage> {
-  String name;
+  String name, phone;
   var prefs;
   void getInfo() async {
     prefs = await SharedPreferences.getInstance();
     setState(() {
       name = prefs.getString('nameUser');
+      phone = prefs.getString('phoneUser');
     });
     if (prefs.getString('nameUsersadas') == null) {
       print('loi sai ten');
@@ -84,7 +85,7 @@ class _InfoUserPageState extends State<InfoUserPage> {
                     SizedBox(
                       width: 89,
                     ),
-                    Text('Kool'),
+                    Text('$name'),
                     SizedBox(
                       width: 103,
                     ),
@@ -114,9 +115,9 @@ class _InfoUserPageState extends State<InfoUserPage> {
                     SizedBox(
                       width: 60,
                     ),
-                    Text('078665220'),
+                    Text('$phone'),
                     SizedBox(
-                      width: 59,
+                      width: 52,
                     ),
                     Icon(Icons.phone_android)
                   ],
@@ -155,6 +156,7 @@ class _InfoUserPageState extends State<InfoUserPage> {
               GestureDetector(
                 onTap: () {
                   prefs.remove('nameUser');
+                  prefs.remove('phoneUser');
                   // Navigator.pushAndRemoveUntil(
                   //   context,
                   //   MaterialPageRoute(builder: (BuildContext context) => Screen1()),

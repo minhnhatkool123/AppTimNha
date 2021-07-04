@@ -25,13 +25,13 @@ class BannerApp extends StatelessWidget {
         indicatorBgPadding: 30.0,
         images: [
           NetworkImage(
-              'https://www.dungplus.com/wp-content/uploads/2019/12/girl-xinh-2-480x600.jpg'),
+              'https://list.vn/wp-content/uploads/2020/12/mau-quang-cao-cho-thue-phong-tro-768x512.jpg'), //'https://www.dungplus.com/wp-content/uploads/2019/12/girl-xinh-2-480x600.jpg'),
           NetworkImage(
-              'https://www.dungplus.com/wp-content/uploads/2019/12/girl-xinh-11-800x600.jpg'),
+              'http://saigonvillages.com/wp-content/uploads/2016/07/cho-thue-nha-tro-3-kho-khan-thuong-gap-va-giai-phap-khac-phuc1.jpg'), //'https://www.dungplus.com/wp-content/uploads/2019/12/girl-xinh-11-800x600.jpg'),
           NetworkImage(
-              'https://www.dungplus.com/wp-content/uploads/2019/12/girl-xinh-37-735x400.jpg'),
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLoqMDImuDrFQqtSkamFD0pjaHZTvqgm_sNQ&usqp=CAU'), //'https://www.dungplus.com/wp-content/uploads/2019/12/girl-xinh-37-735x400.jpg'),
           NetworkImage(
-              'https://www.dungplus.com/wp-content/uploads/2019/12/girl-xinh-41.jpg'),
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAj6inRzZZ4q7adLLhJ5ikwl9VeCBgAqIW_Q&usqp=CAU') //'https://www.dungplus.com/wp-content/uploads/2019/12/girl-xinh-41.jpg'),
         ],
       ),
     );

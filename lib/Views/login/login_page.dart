@@ -98,8 +98,8 @@ class _SignFormState extends State<SignForm> {
           sharedPreferences.setString(
               'nameUser', res.data.data.userInformation.name);
 
-          // sharedPreferences.setString(
-          //     'phoneUser', res.data.data.userInformation.phone);
+          sharedPreferences.setString(
+              'phoneUser', res.data.data.userInformation.phone);
           // sharedPreferences.setString('idUser', res.data.data.userInformation.id);
           // sharedPreferences.setInt(
           //     'moneyUser', res.data.data.userInformation.money);
@@ -229,15 +229,15 @@ class _SignFormState extends State<SignForm> {
             SizedBox(
               height: 10,
             ),
-            GestureDetector(
-              onTap: () => {
-                Get.to(() => RegisterPage()),
-              },
-              child: Text(
-                'Chưa có tài khoản? Đăng ký tại đây',
-                style: TextStyle(color: Colors.blue),
-              ),
-            ),
+            // GestureDetector(
+            //   onTap: () => {
+            //     Get.to(() => RegisterPage()),
+            //   },
+            //   child: Text(
+            //     'Chưa có tài khoản? Đăng ký tại đây',
+            //     style: TextStyle(color: Colors.blue),
+            //   ),
+            // ),
           ],
         ));
   }
