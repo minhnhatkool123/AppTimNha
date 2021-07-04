@@ -9,7 +9,7 @@
 * Lọc cũng như tìm kiếm các phòng trọ theo yêu cầu mong muốn
 
 ## Các thiết bị 
-* Hầu như đều đáp ừng được các điện thoại phiên bản Android
+* Hầu như đều đáp ứng được các điện thoại phiên bản Android
 * Chưa được thử nghiệm trên các thiết bị iOS
 
 ## Công nghệ và các thư viện sử dụng
